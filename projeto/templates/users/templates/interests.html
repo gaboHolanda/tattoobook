@@ -1,0 +1,23 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block title %}
+    <title>{{ perfil.name }} | Escolhas suas tags favoritas</title>
+{% endblock %}
+{% block bodycontent %}
+    <div class="container m-top-1">
+        <h2 class="text-center">Escolha seus estilos de tatuagens favoritos!</h2>
+        <div class="row">
+            {% for tag in tags %}
+                <div class="col-lg-3">
+                    {% include 'users/components/tag-card.html' with tag=tag %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="bottom-button">
+            <form method="POST" action="{% url 'users:interests' %}" id="choose-preferences-form" style="margin:0">
+                {% csrf_token %}
+                <button type="button" id="choose-preferences-button">Continuar<i class="far fa-arrow-alt-circle-right"></i></button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% load static %}
+<div class="container-fluid publications">
+    {% if user.user_type_id == 1 %}
+        <input hidden="hidden" value="{% url 'post:update' %}" id="update-post-url">
+        <input hidden="hidden" value="{% url 'post:list-tags' %}" id="list-tags-url">
+        <input hidden="hidden" value="{% url 'post:impulsionar' %}" id="boost-post-url">
+    {% endif %}
+    <div class="row">
+        {% for post in posts %}
+            <div class="col-lg-6">
+                <div class="publication" id="publication-{{ post.id }}">
+                    <div class="publication-options">
+                    {% if user.id == post.user.id %}
+                        <i data-action="toggle-dropdown" id="toggler-options-{{ post.id }}" data-target="options-{{ post.id }}" class="fas fa-ellipsis-h"></i>
+
+                        <div class="options-dropdown hide" id="options-{{ post.id }}">
+                            {% if user.id == post.user.id %}
+                                <span class="dropdown-item" data-id="{{ post.id }}" data-action="publication-edit">Editar</span>
+                                <span class="dropdown-item" data-id="{{ post.id }}" data-action="toggle-modal-delete">Excluir</span>
+                                <span class="dropdown-item" data-id="{{ post.id }}" data-action="publication-boost">
+                                    {% if post.is_boosted %}
+                                        Pausar impulsionamento
+                                    {% else %}
+                                        impulsionar
+                                    {% endif %}
+                                </span>
+{#                                <span class="dropdown-item">Pausar</span>#}
+                            {% else %}
+{#                                <span class="dropdown-item" data-id="{{ post.id }}">Salvar</span>#}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    </div>
+
+                    <div class="publication-header">
+                        <span class="publication-date text-mute" style="margin-right:.5em"> {{ post.created_at | date:"M d, Y à\s h\hm"  }} </span>
+{#                        {% if post.user.id == user.id %}#}
+{#                        <div>#}
+{#                            <i class="far fa-eye"></i> <span class="views-count">10</span>#}
+{#                        </div>#}
+{#                        {% endif %}#}
+                    </div>
+
+                    <div class="publication-body">
+                        {% with tags=post.get_tags %}
+                            {% if tags %}
+                                <div class="publication-tags" id="tags-{{ post.id }}" style="padding-top:0">
+                                    {% for tag in tags %}
+                                        <a href="{% url 'feed:posts.from.tag' id=tag.id slug=tag.slug %}" data-tagid="{{tag.id}}">#{{ tag.description }}</a>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                        <div class="publication-description" id="description-{{ post.id }}" style="padding-top:.5em">
+                            {{ post.description | safe }}
+                        </div>
+                        <div class="publication-images owl-carousel" id="images-{{ post.id }}">
+                            {% for image in post.get_images %}
+                                <div>
+                                    <div class="publication-background" style="background-image:url({{ image.path.url }})"></div>
+                                    <div class="image-container">
+                                        <img src="{{image.path.url}}" data-imgid="{{ image.id }}">
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="publication-footer" id="footer-{{ post.id }}">
+                        <div class="footer-item">
+{#                            <i class="far fa-comment"></i>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

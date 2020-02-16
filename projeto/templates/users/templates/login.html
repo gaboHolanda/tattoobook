@@ -1,0 +1,44 @@
+{% extends 'app.html' %}
+{% block title %}
+    <title>TattoBook | Divulgue suas tatuagens e consiga mais clientes</title>
+{% endblock %}
+{% load static %}
+{% block content %}
+<body class="login-body">
+    <div class="container">
+        <div class="row login-row">
+            <div class="col-lg-6 offset-lg-7">
+                <div class="text-center">
+                    <a href="{% url 'index' %}"><img class="m-top-1" style="width:10em;" src="{% static 'img/logo-footer.png' %}"></a>
+                </div>
+                <div class="m-top-2">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% if error %}
+                            <div class="error">
+                                <span>{{error}}</span>
+                            </div>
+                        {% endif %}
+                        <div class="form">
+                            <input name="username" required placeholder="Nome de usuário ou Email" class="form-input" type="text">
+                            <input name="password" required placeholder="Senha" class="form-input m-top-1" type="password">
+                            <div class="form-checks row-reverse">
+                                <div>
+                                    <a class="default-link" href="#">Esqueceu sua senha?</a>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn-dft btn-medium btn-purple m-top-1" style="width:50%">ENTRAR</button>
+                            </div>
+                            <div class="form-link-cadastrar color-white m-top-1 text-center">
+                                <span>Ainda não tem uma conta?</span>
+                                <a href="{% url 'register' %}">Cadastre-se agora!</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

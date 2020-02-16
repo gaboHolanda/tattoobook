@@ -1,0 +1,151 @@
+.poster{
+    margin-top: 1em;
+    box-shadow: 0px 0px 2px 0px gray;
+    border-radius: 5px;
+    background-color:white;
+    display:flex;
+    flex-direction:column;
+    min-height: 9.55em;
+    position: relative;
+    form{
+        margin:0;
+    }
+    .content-area{
+        textarea{
+            border: none;
+            background-color: inherit;
+            margin: 0px;
+            width: 100%;
+            height: 100%;
+        }
+        .post-images{
+            padding:0;
+            .thumbs{
+                padding: 0em .5em .1em .5em;
+                display: flex;
+                flex-wrap: wrap;
+                .button-add-image-div{
+                    margin-top: .5em;
+                    .add-image{
+                        border: none;
+                        font-size: 2em;
+                        padding: .5em;
+                        cursor: pointer;
+                        border-radius: 5px;
+                    }
+                }
+            }
+            .thumb-uploaded-image{
+                position: relative;
+                border: 1px solid black;
+                width: 4em;
+                height: 4em;
+                min-width:4em;
+                min-height: 4em;
+                border-radius: 5px;
+                background-clip: padding-box;
+                background-size: cover;
+                background-position: center center;
+                margin-right: .5em;
+                margin-top: .5em;
+                .delete-thumb{
+                    position: absolute;
+                    top: .1em;
+                    right: .1em;
+                    cursor:pointer;
+                    display:none;
+                    i{
+                        color:red;
+                    }
+                }
+            }
+            .thumb-uploaded-image:hover{
+                .delete-thumb{
+                    display:block;
+                }
+            }
+        }
+        .post-description{
+            padding:0;
+            min-height: 7em;
+            padding: 0px .5em .5em .5em;
+            .textarea{
+                margin-top: .3em;
+                width: 100%;
+                min-height: 5.5em;
+            }
+            .textarea.no-focus{
+                color:#747474;
+            }
+            .textarea:focus{
+                outline: none !important;
+                border:none;
+            }
+            .selected_tags{
+                display: flex;
+                flex-wrap: wrap;
+                span{
+                    background-color: black;
+                    color: white;
+                    padding: .1em .5em 0em .5em;
+                    border-radius: 1em;
+                    margin-right: .2em;
+                    margin-top: 0.2em;
+                }
+            }
+        }
+    }
+    .poster-buttons{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        border-top: 1px solid #00000066;
+        width: 100%;
+        button{
+            border: none;
+            background-color: inherit;
+            padding: .5em 1em .5em 1em;
+            cursor: pointer;
+            
+        }
+        .right-buttons{
+            display: flex;
+            flex-direction: row-reverse;
+            button{
+                border-left: solid 1px #00000066;
+            }
+        }
+        .left-buttons{
+            display:flex;
+            flex-direction: row;
+            button{
+                border-right: solid 1px #00000066;
+            }
+            .cancel-post-button{
+                background-color: red;
+                color: white;
+                border-bottom-left-radius: 5px;
+                display:inline-block;
+            }
+        }
+        button:focus{
+            outline: none !important;
+        }
+        .select-tags{
+            position: absolute;
+            right: 15em;
+            top: 0;
+            border: 1px solid black;
+            background-color: white;
+            z-index:99;
+            .select-item{
+                padding: .25em .5em .1em .25em;
+                cursor: default;
+            }
+            .select-item.selected{
+                background-color: black;
+                color: white;
+            }
+        }
+    }
+}

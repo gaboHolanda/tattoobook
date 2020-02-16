@@ -1,0 +1,5 @@
+<div class="result-bar">
+    <a {% if selected == 'geral' %} class="selected" {% endif %}  href="{% url 'gerenciar_perfil:geral' %}"> Geral </a>
+    <a {% if selected == 'seguranca' %} class="selected" {% endif %} href="{% url 'gerenciar_perfil:seguranca' %}"> Segurança </a>
+{#    <a {% if selected == 'localizacao' %} class="selected" {% endif %} href="{% url 'gerenciar_perfil:localizacao' %}"> Localização </a>#}
+</div>

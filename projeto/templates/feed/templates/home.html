@@ -1,0 +1,24 @@
+{% extends 'feed/base.html' %}
+{% load static %}
+{% block bodycontent %}
+    <div class="home-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="offset-lg-1 offset-md-0 col-lg-2 col-md-3 left-content">
+                    {% include 'feed/components/user-card.html' %}
+                    
+                    {% include 'feed/components/personal-menu.html' %}
+                </div>
+                <div class="col-lg-6 col-md-6 middle-content">
+                    {% if user.user_type_id == 1 %}
+                        {% include 'post/components/poster.html' %}
+                    {% endif %}
+                    {% include 'post/components/publications.html' %}
+                </div>
+                <div class="col-lg-2 col-md-3 right-content">
+                    {% include 'feed/components/events.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

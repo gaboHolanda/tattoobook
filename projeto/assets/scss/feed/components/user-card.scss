@@ -1,0 +1,51 @@
+.user-card{
+    margin-top: 1em;
+    box-shadow: 0px 0px 2px 0px gray;
+    padding: 0;
+    border-radius: 5px;
+    position: relative;
+    background-color: white;
+    min-height: 8em;
+    .background-card{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        height: 60%;
+        width: 100%;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+    .background-card.empty{
+        background-color:white;
+        border-bottom:1px solid black;
+    }
+    .card-itens{
+        display: flex;
+        flex-direction: column;
+        margin-top: 2em;
+        padding: 1em 1em 1em 0em;
+        span{
+            color: white;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+    }
+    .card-avatar-container{
+        padding: 1em 0em 0em 1em;
+        .card-avatar{
+            border:1px solid white;
+            width: 100px;
+            height: 100px;
+            -webkit-border-radius: 60px;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 60px;
+            -moz-background-clip: padding;
+            border-radius: 60px;
+            background-clip: padding-box;
+            background-size: cover;
+            background-position: center center;
+            cursor:pointer;
+        }
+    }
+}

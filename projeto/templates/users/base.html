@@ -1,0 +1,16 @@
+{% extends 'app.html' %}
+{% load static %}
+{% block title %}
+    <title>Feed | TattoBook</title>
+{% endblock %}
+{% block content %}
+    <body style="background-color:rgb(229, 229, 229);">
+        <div class="body-content">
+            {% block bodycontent %}
+            {% endblock %}
+        </div>
+    </body>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'js/feed/home.js' %}"></script>
+{% endblock %}

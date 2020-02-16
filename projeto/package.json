@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "node-sass": "^4.12.0",
+    "webpack": "^4.41.2"
+  },
+  "scripts": {
+    "watch": "node-sass --watch assets/scss/app.scss -o static/css/app.css",
+    "dev": "node-sass assets/scss/app.scss static/css/app.css",
+    "prod": "node-sass assets/scss/app.scss static/css/app.css --output-style compressed",
+    "js":"./node_modules/.bin/webpack"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.9"
+  }
+}

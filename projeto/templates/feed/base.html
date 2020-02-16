@@ -1,0 +1,29 @@
+{% extends 'app.html' %}
+{% load static %}
+{% block title %}
+    <title>Feed | TattoBook</title>
+{% endblock %}
+{% block content %}
+    <body style="background-color:rgb(229, 229, 229);">
+        {% include 'feed/components/nav.html' %}
+        <div class="body-content">
+            {% block bodycontent %}
+            {% endblock %}
+        </div>
+        {% include 'feed/components/modal.html' %}
+        {% include 'chat/components/chats.html' %}
+    </body>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $(document).ready(function(){
+            let options = {
+                items:1,
+                loop:false,
+                nav:true,
+                mouseDrag:false
+            }
+            $(".owl-carousel").owlCarousel(options);
+        });
+    </script>
+{% endblock %}

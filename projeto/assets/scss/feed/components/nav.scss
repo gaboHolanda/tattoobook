@@ -1,0 +1,120 @@
+.nav-user{
+    padding: .7em 10em .7em 10em;
+    display: flex;
+    width: 100%;
+    background-color: rgb(41, 41, 41);
+    flex-direction: row-reverse;
+    position:fixed;
+    top:0;
+    z-index:500;
+    .nav-itens{
+        display:flex;
+        flex-direction: row-reverse;
+    }
+    .nav-logo{
+        position: absolute;
+        top: -0.6em;
+        left: 11em;
+    }
+}
+.nav-item {
+    position:relative;
+    .avatar{
+        border:1px solid black;
+        width: 32px;
+        height: 32px;
+        -webkit-border-radius: 60px;
+        -webkit-background-clip: padding-box;
+        -moz-border-radius: 60px;
+        -moz-background-clip: padding;
+        border-radius: 60px;
+        background-clip: padding-box;
+        background-size: cover;
+        background-position: center center;
+        cursor:pointer;
+    }
+    .dropdown-content{
+        height: fit-content;
+        border:1px solid rgb(126, 126, 126);
+        position:absolute;
+        top: 0;
+        right: 2em;
+        background-color:white;
+        display:flex;
+        flex-direction: column;
+    }
+    .dropdown-content hr{
+        width: 100%;
+        margin: 0;
+    }
+}
+.user-informations{
+    padding:1em;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    .user-name{
+        font-weight: bold;
+    }
+}
+.dropdown-link{
+    text-decoration: none;
+    color:black;
+    display:flex;
+    padding: .5em 1em 0.5em 1em;
+    span{
+        margin-left: 1em;
+    }
+}
+.dropdown-link:hover{
+    color:black;
+    text-decoration:none;
+    background-color:rgb(211, 211, 211);
+}
+.dropdown-content.hide{
+    display:none;
+}
+.dropdown-content.show{
+    display:inline-block;
+}
+.nav-icon-item{
+    font-size: 1.3em;
+    margin-right: 1.5em;
+    display: flex;
+    align-items: center;
+    i{
+        cursor:pointer;
+        color:white;
+    }
+}
+.input-item{
+    font-size: 1.3em;
+    margin-right: .5em;
+    width:20em;
+    display: flex;
+    align-items: center;
+    form{
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+.home-body{
+    margin-top: 3.4em;
+}
+.search-input{
+    width: 0%;
+    padding: 0;
+    border: none;
+    transition: width 500ms;
+}
+.search-input:focus{
+    outline: none !important;
+    border:1px solid purple;
+}
+.search-input.expanded{
+    width: 100%;
+    padding: 1px;
+    transition: width 500ms;
+}

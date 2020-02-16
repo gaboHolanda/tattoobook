@@ -1,0 +1,61 @@
+::selection{
+    background-color:#800080;
+}
+.logo-title{
+    position: absolute;
+    top: 1em;
+    left: 5em;
+    z-index: 999;
+    width: 15em;
+}
+.home-background{
+    position:relative;
+}
+.home-background .home-text{
+    top:2.5em;
+    left:1em;
+    position:absolute;
+    z-index:999;
+    color:white;
+    font-size:5em;
+}
+.home-background .login-links{
+    top:1em;
+    right:2em;
+    position:absolute;
+    z-index:999;
+    font-size:1.5em;
+}
+.home-background .login-links a{
+    color:white;
+    text-decoration: none;
+}
+.home-card{
+    text-align: center;
+    padding:1em;
+    font-size:1.5em;
+    font-weight: bold;
+}
+.parallax {
+    background-image: url("../img/questions_background.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding:2em;
+}
+.question-card{
+    border:2px solid;
+    padding:1em;
+    text-align: left;
+}
+.question-card .question-title{
+    font-size:1.2em;
+    font-weight: bold;
+}
+.question-card .question-body{
+    font-size:1em;
+} 
+.color-white{
+    color:white;
+}

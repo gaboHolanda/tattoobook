@@ -1,0 +1,7 @@
+{% load static %}
+<div class="tag-card" data-action="clickable-tag-card" data-id="{{ tag.id }}">
+    {% with 'img/tags/'|add:tag.slug|add:'.jpg' as tag_image %}
+        <div class="background" style="background-image:url({% static tag_image %})"></div>
+    {% endwith %}
+    <span>{{ tag.description }}</span>
+</div>

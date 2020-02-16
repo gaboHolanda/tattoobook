@@ -1,0 +1,51 @@
+{% extends 'feed/base.html' %}
+{% load static %}
+{% block bodycontent %}
+    <div class="home-body">
+        {% include 'gerenciar_perfil/components/barra-opcoes.html' with selected='localizacao' %}
+        <div class="container">
+            <h1>Localização</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-gerenciar">
+                            <div class="form-group">
+                                <label for="cep">CEP:</label>
+                                <input id="cep" type="text" name="cep" placeholder="CEP">
+                            </div>
+                            <div class="form-group">
+                                <label for="pais">País:</label>
+                                <input id="pais" type="text" name="pais" placeholder="País">
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Estado:</label>
+                                <input id="estado" type="text" name="estado" placeholder="Estado">
+                            </div>
+                            <div class="form-group">
+                                <label for="cidade">Cidade:</label>
+                                <input id="cidade" type="text" name="cidade" placeholder="Cidade">
+                            </div>
+                            <div class="form-group">
+                                <label for="bairro">Bairro:</label>
+                                <input id="bairro" type="text" name="bairro" placeholder="Bairro">
+                            </div>
+                            <div class="form-group">
+                                <label for="rua">Rua:</label>
+                                <input id="rua" type="text" name="rua" placeholder="Rua">
+                            </div>
+                            <div class="form-group">
+                                <label for="numero">Número:</label>
+                                <input id="numero" type="text" name="numero" placeholder="Número">
+                            </div>
+
+                            <button>Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

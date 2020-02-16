@@ -1,0 +1,93 @@
+{% extends 'feed/base.html' %}
+{% load static %}
+{% block bodycontent %}
+    <div class="home-body">
+        {% include 'gerenciar_perfil/components/barra-opcoes.html' with selected='geral' %}
+
+        <div class="container">
+            <h1>Geral</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="image-gerenciar">
+                            {% if user.setting.avatar.url is not null %}
+                                <img class="image-avatar" src="{{user.setting.avatar.url}}">
+                            {% else %}
+                                <img class="image-avatar" src="{% static 'img/avatar-placeholder.jpg' %}">
+                            {% endif %}
+                                {% if perfil.id == user.id %}
+                                    <i class="far fa-edit avatar-edit" id="avatar-edit-button"></i>
+                                    <div class="avatar-hover"></div>
+                                {% endif %}
+{#                            <span>Editar Imagem</span>#}
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        {% if messages %}
+                            <ul class="messages">
+                            {% for msg in messages %}
+                                <li>
+                                <div class="alert alert-{{ msg.level_tag }}" role="alert">
+                                    {{ msg.message }}
+                                </div>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <div class="form-gerenciar">
+                            <div class="form-group">
+                                <label for="name">Nome Completo:</label>
+                                <input id="name" type="text" name="name" placeholder="Nome Completo" 
+                                    value="{% if old_name %}{{old_name}}{% else %}{{ user.name }}{% endif %}">
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Nome de usuário:
+                                    {% if error_username %}
+                                       <span class="error"> {{ error_username }} </span>
+
+                                    {% endif %}
+                                </label>
+                                <input id="username" type="text" name="username" placeholder="Nome de Usuáro" 
+                                    value="{% if old_username %}{{old_username}}{% else %}{{ user.username }}{% endif %}">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:
+                                    {% if error_email %}
+                                       <span class="error"> {{ error_email }} </span>
+                                    {% endif %}
+                                </label>
+                                <input id="email" type="text" name="email" placeholder="Email" 
+                                    value="{% if old_email %}{{old_email}}{% else %}{{ user.email }}{% endif %}">
+                            </div>
+                            <button>Salvar Alterações</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    let $avatar = $('#avatar-cover')
+    let old_avatar = $avatar.css('background-image')
+
+    $('#avatar-edit-button').click(() => {
+        $('#avatar-edit-input').click()
+    })
+
+    $('#avatar-edit-input').click((event) => {
+        event.stopPropagation()
+    })
+
+    $('#avatar-edit-input').change(function(event){
+        prevent(event)
+        $('#update-buttons').removeClass('none')
+        let file = event.target.files[0]
+        let source_url = URL.createObjectURL(file)
+        avatar_blob_url = source_url
+        $avatar.removeClass('empty-avatar')
+        $avatar.css('background-image',`url(${source_url})`)
+    })
+    </script>
+{% endblock %}

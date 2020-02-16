@@ -1,0 +1,62 @@
+{% extends 'app.html' %}
+{% block title %}
+    <title>TattoBook | Cadastre-se agora</title>
+{% endblock %}
+{% load static %}
+{% block content %}
+<body class="login-body">
+    <div class="container">
+        <div class="row login-row m-top-9">
+            <div class="col-lg-6 offset-lg-7">
+                <div class="text-center">
+                    <a href="{% url 'index' %}"><img class="m-top-1" style="width:10em;" src="{% static 'img/logo-footer.png' %}"></a>
+                </div>
+                <div class="m-top-2">
+                    <form method="POST">
+                        <div class="form">
+                            {% csrf_token %}
+                            <div class="choose-buttons m-bottom-2">
+                                <div class="individual-check">
+                                    <input required id="artist" name="user-type" type="radio" value="1">
+                                    <label class="radio-label disabled" for="artist">Quero divulgar minhas tatuagens</label>
+                                </div>
+                                <div class="individual-check">
+                                    <input required id="user" name="user-type" type="radio" value="2">
+                                    <label class="radio-label disabled" for="user">Quero encontrar um tatuador</label>
+                                </div>
+                            </div>
+                            {% if error_username %}
+                                <div class="error">
+                                    <span>{{error_username}}</span>
+                                </div>
+                            {% endif %}
+                            <input required name="username" id="username" placeholder="Nome de Usuário" class="form-input m-bottom-1" type="text" {% if old_username %} value="{{old_username}}" {% endif %}>
+                            <input required name="name" placeholder="Nome Completo" class="form-input m-bottom-1" type="text" {% if old_name %} value="{{old_name}}" {% endif %}>
+                            {% if error_email %}
+                                <div class="error">
+                                    <span>{{error_email}}</span>
+                                </div>
+                            {% endif %}
+                            <input required name="email" placeholder="Email" class="form-input m-bottom-1" type="text" {% if old_email %} value="{{old_email}}" {% endif %}>
+                            {% if error_password %}
+                                <div class="error">
+                                    <span>{{error_password}}</span>
+                                </div>
+                            {% endif %}
+                            <input required name="password" placeholder="Senha" class="form-input m-bottom-1" type="password">
+                            <input required name="password_confirm" placeholder="Repetir Senha" class="form-input m-bottom-1" type="password">
+                            <div class="text-center">
+                                <button class="btn-dft btn-medium btn-purple m-top-1" style="width:50%">CADASTRAR</button>
+                            </div>
+                            <div class="form-link-cadastrar color-white m-top-1 text-center">
+                                <span>Já é cadastrado?</span>
+                                <a href="{% url 'login' %}">Entrar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

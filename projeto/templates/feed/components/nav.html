@@ -1,0 +1,48 @@
+{% load static %}
+<div class="nav-user">
+    <div class="nav-itens">
+        <div class="nav-item">
+            <div id="avatar-dropdown" class="avatar-dropdown">
+                {% if user.setting.avatar.url is not null %}
+                    <div class="avatar" style="background-image: url({{ user.setting.avatar.url }})" id="avatar-nav-menu"></div>
+                {% else %}
+                    <div class="avatar empty-avatar" id="avatar-nav-menu"></div>
+                {% endif %}
+            </div>
+            <div id="avatar-dropdown-content" class="dropdown-content hide">
+                <div class="user-informations">
+                    <span class="user-name">{{ user.name }}</span>
+                    <a href="#" id="logout">Sair</a>
+                    <form id="logout-form" action="{% url 'feed:logout' %}" method="POST" style="display=none;">
+                        {% csrf_token %}
+                    </form>
+                </div>
+                <hr>
+                <a href="{% url 'perfil:show' user.username %}" class="dropdown-link">
+                    <i class="fas fa-user"></i><span>Perfil</span>
+                </a>
+                <a href="{% url 'gerenciar_perfil:geral' %}" class="dropdown-link">
+                    <i class="fas fa-cog"></i><span>Gerenciar</span>
+                </a>
+            </div>
+        </div>
+        <div class="nav-icon-item">
+            <i title="Notifications" class="fas fa-bell"></i>
+        </div>
+        <div class="nav-icon-item">
+            <i title="Messages" class="fas fa-comment"></i>
+        </div>
+        <div class="nav-icon-item">
+            <i class="fas fa-search" id="buscar-tatuador"></i>
+        </div>
+        <div class="input-item">
+            <form method="GET" action="{% url 'search:list.users' %}" id="buscar-tatuador-form">
+                <input autocomplete="off" class="search-input" name="q" type="text" id="buscar-input">
+            </form>
+            {% include 'search/components/users-pre-search.html' %}
+        </div>
+    </div>
+    <div class="nav-logo">
+        <a href="{% url 'feed:home' %}"><img class="m-top-1" width="40" src="{% static 'img/logo-footer.png' %}"></a>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+.login-body{
+    background:url(../img/login-background.jpg);
+    background-color:#020806;
+    background-repeat: no-repeat;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.form-input{
+    padding: 0 1em 0 1em;
+    height: 3em;
+    border: none;
+}
+.login-row{
+    margin-top:14em;
+}
+.form-checks{
+    color: white;
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    a{
+        color:rgb(98, 98, 255);
+        text-decoration: none;
+    }
+}
+.form-link-cadastrar {
+    a{
+        color:rgb(98, 98, 255);
+        text-decoration: none;
+    }
+}
+.choose-buttons{
+    display:flex;
+    justify-content: space-between;
+    label{
+        color: white;
+        padding: 1em;
+        cursor: pointer;
+        border-radius: 1em;
+    }
+    label.disabled{
+        background-color: #aaaaaa;
+    }
+    label.enabled{
+        background-color:purple;
+    }
+    input{
+        display:none;
+    }
+}
+.error{
+    color: red;
+    text-align: center;
+}

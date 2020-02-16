@@ -1,0 +1,16 @@
+<div class="users-list">
+    {% for tatuador in tatuadores %}
+        <div class="user">
+            {% if tatuador.setting.avatar.url is not null %}
+                <a class="avatar" href="{% url 'perfil:show' tatuador.username %}" style="background-image: url({{ tatuador.setting.avatar.url }})"></a>
+            {% else %}
+                <a class="avatar empty-avatar" href="{% url 'perfil:show' tatuador.username %}" ></a>
+            {% endif %}
+            <div class="informations">
+                <a class="name" href="{% url 'perfil:show' tatuador.username %}">{{ tatuador.name }}</a>
+                <span class="location">Natal, Rio Grande do Norte</span>
+            </div>
+{#            <i class="far fa-heart" data-action="follow-user"></i>#}
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,25 @@
+<div class="user-card">
+    {% if user.setting.cover.url is not null %}
+        <div class="background-card" style="background-image: url({{ user.setting.cover.url }})"></div>
+    {% else %}
+        <div class="background-card empty"></div>
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 card-avatar-container">
+                {% if user.setting.avatar.url is not null %}
+                    <div class="card-avatar" style="background-image: url({{ user.setting.avatar.url }})"></div>
+                {% else %}
+                    <div class="card-avatar empty-avatar"></div>
+                {% endif %}
+            </div>
+            <div class="col-lg-6 card-itens">
+                <span>{{ user.name }}</span>
+                <span>@{{user.username}}</span>
+{#                {% if user.user_type_id == 1 %}#}
+{#                    <button class="btn-dft btn-small btn-purple m-top-1">Impulsionar Perfil</button>#}
+{#                {% endif %}#}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+[
+    {
+        "model":"users.UserType",
+        "pk":1,
+        "fields":{
+            "description":"Tatuador"
+        }
+    },
+    {
+        "model":"users.UserType",
+        "pk":2,
+        "fields":{
+            "description":"Cliente"
+        }
+    }
+]

@@ -1,0 +1,48 @@
+<div class="poster">
+    <form id="form-post" action="{% url 'post:create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input hidden="hidden" name="images" id="images-input" type="file" accept="image/*"  multiple>
+        <div class="content-area">
+            <div class="container-fluid no-padding">
+                <div class="column">
+                    <div class="post-images">
+                        <div id="thumbs" class="thumbs">
+                            <div class="button-add-image-div">
+                                <button id="new-image" type="button" class="add-image">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-description">
+                        <div class="selected_tags" id="selected-tags">
+                        </div>
+                        <div id="post-content" data-has-content="0" class="textarea no-focus" contenteditable="true" data-placeholder="Descreva sua publicação">
+                            Descreva sua publicação
+                        </div>
+                    </div>
+                    <textarea name="description" hidden="hidden"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="poster-buttons">
+            <div class="right-buttons">
+                <button type="button" id="submit-post">Publicar <i class="fas fa-tint"></i></i></button>
+                <button type="button" id="tags">Tags <i class="fas fa-hashtag"></i></button>
+            </div>
+            <div class="left-buttons">
+                <button class="cancel-post-button none" type="button" id="cancel-post">Cancelar <i class="fas fa-slash"></i></button>
+            </div>
+            <select hidden="hidden" name="tags" id="select-tags-select" multiple>
+                {% for tag in tags %}
+                    <option value="{{ tag.id }}">{{ tag.description }}</option>
+                {% endfor %}
+            </select>
+            <div class="select-tags none" id="select-tags-div">
+                {% for tag in tags %}
+                    <div class="select-item" data-selected="0" data-id="{{ tag.id }}" data-slug="{{ tag.slug }}" data-description="{{ tag.description }}">{{ tag.description }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </form>
+</div>

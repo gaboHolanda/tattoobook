@@ -1,0 +1,11 @@
+{% extends 'feed/base.html' %}
+{% load static %}
+{% block title %}
+    <title>{{ perfil.name }} | TattoBook</title>
+{% endblock %}
+{% block bodycontent %}
+    <div class="home-body">
+        {% include 'perfil/components/cover.html' %}
+        {% include 'perfil/components/publications.html' %}
+    </div>
+{% endblock %}

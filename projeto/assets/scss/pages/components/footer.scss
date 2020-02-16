@@ -1,0 +1,22 @@
+.footer{
+    background-color: black;
+    width:100%;
+}
+.footer-content{
+    padding: 1em 0 1em 0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+.footer-email{
+    margin-top:1em;
+}
+.footer-icons{
+    margin-top:.5em;
+    font-size:2em;
+    a{
+        text-decoration: none;
+        color:white;
+    }
+}

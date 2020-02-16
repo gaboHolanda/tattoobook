@@ -1,0 +1,139 @@
+.cover{
+    height: 20em;
+    width:100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position:relative;
+    .cover-edit{
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        font-size: 1.5em;
+        color: white;
+        display:none;
+        cursor:pointer;
+        z-index:2;
+    }
+    .user-cover-container{
+        height: 100%;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        padding-left: 2em;
+        .avatar-cover{
+            width: 18em;
+            height: 18em;
+            background-size: cover;
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            border: solid white 2px;
+            z-index:3;
+            .fa-heart{
+                position: absolute;
+                bottom: .5em;
+                left: 50%;
+                transform: translate(-50%);
+                cursor: pointer;
+                font-size: 2em;
+                color: red;
+            }
+            .avatar-edit{
+                position: absolute;
+                top: 3em;
+                right: 2.5em;
+                cursor: pointer;
+                color: white;
+                z-index:4;
+                display:none;
+            }
+        }
+        .avatar-cover:hover{
+            .avatar-hover{
+                background-color: black;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+                filter: opacity(0.3);
+                z-index: 3;
+            }
+            .avatar-edit{
+                display:inline-block;
+            }
+        }
+        .informations-cover{
+            margin-left: 1em;
+            z-index: 2;
+            .user-cover-name{
+                font-weight: bold;
+                font-size: 3em;
+                color: black;
+                text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+            }
+            .username-cover{
+                font-size: 1.5em;
+                text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+            }
+            button{
+                background-color: black;
+                color: white;
+                padding: .5em;
+                border: 1px white solid;
+                border-radius: 0;
+                cursor: pointer;
+                margin-top: 1em;
+            }
+        }
+        
+    }
+    .update-buttons{
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+        z-index: 10;
+        button{
+            border: none;
+            padding: .5em;
+            cursor: pointer;
+        }
+        .success{
+            background-color: white;
+            border: 1px solid;
+            color: green;
+        }
+        .success:hover{
+            background-color:green;
+            border: 1px solid green;
+            color:white;
+        }
+        .cancel{
+            background-color: white;
+            color: red;
+            border: 1px solid;
+        }
+        .cancel:hover{
+            background-color:red;
+            border: 1px solid red;
+            color:white;
+        }
+    }
+}
+.cover:hover{
+    .cover-edit{
+        display:inline-block;
+    }
+    .cover-hover{
+        position: absolute;
+        background-color: black;
+        height: 100%;
+        width: 100%;
+        filter: opacity(0.3);
+        z-index: 1;
+    }
+}
+.cover.empty{
+    background-color:white;
+}

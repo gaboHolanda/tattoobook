@@ -1,0 +1,10 @@
+{% extends 'feed/base.html' %}
+{% load static %}
+{% block bodycontent %}
+    <div class="home-body">
+    {% include 'search/components/result-bar.html' %}
+        <div class="container">
+            {% include 'search/components/users-list.html'%}
+        </div>
+    </div>
+{% endblock %}

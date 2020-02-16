@@ -1,0 +1,28 @@
+.result-bar{
+    background-color: white;
+    padding-left: 10em;
+    display: flex;
+    button,a{
+        border: none;
+        background-color: white;
+        cursor: pointer;
+        padding: 1em;
+        border-bottom: solid white;
+    }
+    a{
+        text-decoration: none;
+        color:black;
+    }
+    button:hover,a:hover{
+        color: purple;
+        border-bottom: solid rgba(128, 0, 128, 0.3);
+    }
+    button.selected,a.selected{
+        border-bottom: solid purple;
+        color: purple;
+        font-weight: bold;
+    }
+    button:focus,a:focus {
+        outline:none;
+    }
+}

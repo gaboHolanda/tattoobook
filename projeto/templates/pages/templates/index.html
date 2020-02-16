@@ -1,0 +1,80 @@
+{% extends 'app.html' %}
+{% load static %}
+{% block content %}
+    <div class="home-background">
+        <img class="img-fluid" src="{% static 'img/home-background.jpg' %}">
+        <a href="#"><img class="logo-title" src="{% static 'img/logo-titulo.png' %}"></a>
+        <div class="home-text">
+            <span class="zero-opacity" id="pense">Pense</span><br>
+            <span class="zero-opacity" id="procure">procure</span><br>
+            <span class="zero-opacity" id="tatue">tatue.</span>
+        </div>
+        <div class="login-links">
+            {% if user.is_authenticated %}
+                <a href="{% url 'feed:home' %}">Inicio</a>
+            {% else %}
+                <a class="m-right-1" href="{% url 'register' %}">Cadastrar-se</a>
+                <a href="{% url 'login' %}">Entrar</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="container-fluid no-padding no-margin bg-white color-black">
+        <div class="container">
+            <div class="home-card">
+                <span>Tatuador, cadastre-se agora e divulgue seus desenhos para milhares de clientes!</span>
+                <div class="m-top-1">
+                    <a href="#" class="btn-dft btn-small btn-purple">CADASTRE-SE COMO TATUADOR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid no-padding no-margin bg-black color-white">
+        <div class="container">
+            <div class="home-card">
+                <span>Cliente, cadastre-se agora e realize seu sonho da tatuagem perfeita!</span>
+                <div class="m-top-1">
+                    <a href="#" class="btn-dft btn-small btn-purple">CADASTRE-SE COMO CLIENTE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid no-padding no-margin bg-white">
+        <div class="container">
+            <div class="pd-all-1">
+                <div class="question-card">
+                    <div class="question-title">
+                        Encontre o melhor tatuador para sua ideia e estilo
+                    </div>
+                    <div class="question-body">
+                        Conecte-se com nossa rede de tatuadores por todo Brasil e encontre o melhor profissional para você baseado na sua ideia e estilo específicos.
+                    </div>
+                </div>
+                <div class="question-card m-top-1">
+                    <div class="question-title">
+                        Conquiste novos clientes através da nossa plataforma
+                    </div>
+                    <div class="question-body">
+                        Conecte-se com nossa rede de amantes de tatuagem para ficar com sua agenda lotada e atenda clientes com demandas específicas para o estilo que você gosta. 
+                    </div>
+                </div>
+                <!-- <div class="question-card m-top-1">
+                    <div class="question-title">
+                        Netus et malesuada fames ac turpis egestas maecenas pharetra convallis.?
+                    </div>
+                    <div class="question-body">
+                        Massa tincidunt dui ut ornare lectus sit amet. Pellentesque adipiscing commodo elit at imperdiet dui accumsan. Magna fringilla urna porttitor rhoncus.
+                    </div>
+                </div>
+                <div class="question-card m-top-1">
+                    <div class="question-title">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?
+                    </div>
+                    <div class="question-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tempus iaculis urna id volutpat lacus.
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'pages/components/footer.html' %}
+{% endblock %}

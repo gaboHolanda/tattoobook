@@ -1,0 +1,45 @@
+{% load static %}
+{% if perfil.setting.cover.url is not null %}
+<div class="cover" style="background-image: url({{ perfil.setting.cover.url }})" id="cover">
+{% else %}
+<div class="cover empty" id="cover">
+{% endif %}
+    {% if perfil.id == user.id %}
+        <i class="far fa-edit cover-edit" id="cover-edit-button"></i>
+        <div class="cover-hover"></div>
+        <form class="none" method="POST" id="update-setting-form" action="{% url 'users:settings' %}">
+            {% csrf_token %}
+            <input hidden="hidden" type="file" name="avatar" id="avatar-edit-input">
+            <input hidden="hidden" type="file" name="cover" id="cover-edit-input">
+        </form>
+    {% endif %}
+    <div class="user-cover-container">
+        {% if perfil.setting.avatar.url is not null %}
+        <div class="avatar-cover" data-has-avatar="1" style="background-image: url({{ perfil.setting.avatar.url }})" id="avatar-cover">
+        {% else %}
+        <div class="avatar-cover empty-avatar" data-has-avatar="0" id="avatar-cover">
+        {% endif %}
+            {% if perfil.id == user.id %}
+                <i class="far fa-edit avatar-edit" id="avatar-edit-button"></i>
+                <div class="avatar-hover"></div>
+            {% else %}
+{#                {% if perfil.user_type_id == 1 %}#}
+{#                    <i class="far fa-heart" data-action="follow-user"></i>#}
+{#                {% endif %}#}
+            {% endif %}
+        </div>
+        <div class="informations-cover">
+            <div class="user-cover-name">{{ perfil.name }}</div>
+            <div class="username-cover">@{{ perfil.username }}</div>
+            {% if perfil.id != user.id %}
+                <button class="btn-dft" data-target-id="{{perfil.id}}" data-action="send-message">Enviar mensagem</button>
+            {% endif %}
+        </div>
+    </div>
+    {% if perfil.id == user.id %}
+        <div class="update-buttons none" id="update-buttons">
+            <button class="success" id="update">Salvar</button>
+            <button class="cancel" id="cancel-update">Cancelar</button>
+        </div>
+    {% endif %}
+</div>

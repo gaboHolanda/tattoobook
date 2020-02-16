@@ -1,0 +1,90 @@
+.chats{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    z-index: 99;
+    right: 10em;
+    align-items: flex-end;
+    .chat{
+        height: fit-content;
+        width: 18em;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 0px 4px 0px grey;
+        margin: 0 .5em 0 .5em;
+        z-index: 99;
+        .chat-header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: white;
+            padding: .4em .5em .3em .5em;
+            border-bottom: solid 1px gray;
+            cursor: pointer;
+        }
+        .chat-body{
+            height: 18em;
+            background-color: white;
+            overflow-y: scroll;
+            .message{
+                display: flex;
+                padding: .3em;
+                align-items: center;
+                .avatar{
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    height: 32px;
+                    width: 32px;
+                    border-radius: 50%;
+                    background-clip: padding-box;
+                }
+                .line{
+                    background-color: lightgray;
+                    padding: .3em;
+                    border-radius: 5px;
+                    width: 13em;
+                    box-shadow: 0px 0px 2px 0px grey;
+                }
+            }
+            .message.me{
+                flex-direction: row-reverse;
+                .line{
+                    margin-right: 0.5em;
+                    background-color: #bba8e3;
+                }
+            }
+            .message.other{
+                flex-direction: row;
+                .line{
+                    margin-left: 0.5em;
+                    background-color: white;
+                }
+            }
+        }
+        .chat-footer{
+            padding: .2em 0 .2em 0;
+            background-color:white;
+            textarea{
+                border: none;
+                width: 100%;
+                border-top: solid 1px gray;
+                height: 21px;
+                padding-left: .2em;
+                resize: none;
+            }
+            textarea:focus{
+                outline: none;
+            }
+        }
+    }
+    .chat.hide{
+        height: fit-content;
+        .chat-body{
+            display:none;
+        }
+        .chat-footer{
+            display:none;
+        }
+    }
+}

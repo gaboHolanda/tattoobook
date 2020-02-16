@@ -1,0 +1,45 @@
+.users-list{
+    display: flex;
+    flex-direction: column;
+    .user{
+        margin-top: 2em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        box-shadow: 0px 0px 2px 0px grey;
+        background-color: white;
+        padding: 1em;
+        border-radius: 5px;
+        position:relative;
+        width:30em;
+        .avatar{
+            border:1px solid white;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background-clip: padding-box;
+            background-size: cover;
+            background-position: center center;
+        }
+        .informations{
+            margin-left: 1em;
+            display: flex;
+            flex-direction: column;
+            .name{
+                text-decoration: none;
+            }
+            .location{
+                font-size: 0.8em;
+                color: gray;
+            }
+        }
+        i{
+            position: absolute;
+            top: .5em;
+            right: .5em;
+            font-size: 1.3em;
+            cursor: pointer;
+            color:red
+        }
+    }
+}
